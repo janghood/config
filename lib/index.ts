@@ -10,3 +10,4 @@
 export { loadJanghoodConfig, validateDocumentConfig } from './config';
 
 export * from './defineJhConfig';
+export * from './init/initConfig';

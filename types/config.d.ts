@@ -24,6 +24,7 @@ export type JanghoodConfigFn = (config?: JanghoodConfig) => JanghoodConfig | Pro
 export type JanghoodConfigExport = JanghoodConfig | Promise<JanghoodConfig> | JanghoodConfigFn;
 
 export declare function defineJhConfig(config?: JanghoodConfig): JanghoodConfigExport;
+export declare function initConfig(config?: JanghoodConfig): JanghoodConfig;
 
 export declare function loadJanghoodConfig(configFile?: string, configRoot?: string): Promise<{ path: string, config: JanghoodConfig, dependencies: string[] } | null>;
 
