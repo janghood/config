@@ -7,11 +7,17 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { ApiExtractorType } from './api-extractor';
+import { InOrExclude } from './common/InOrExclude';
+import { WithEmptyBoolean } from './common/tools';
 
 export * from './api-extractor';
 
+export type BaseConfig = InOrExclude;
+
+
 export interface JanghoodConfig {
-  apiExtractor?: ApiExtractorType;
+  base?: BaseConfig,
+  apiExtractor?: WithEmptyBoolean<ApiExtractorType>;
 }
 
 export type JanghoodConfigFn = (config?: JanghoodConfig) => JanghoodConfig | Promise<JanghoodConfig>;

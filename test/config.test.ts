@@ -8,7 +8,7 @@
  */
 import { test, expect, describe } from 'vitest';
 import defineJhConfig from '../lib/defineJhConfig';
-import { loadJanghoodConfig, validateDocumentConfig } from '../lib/config';
+import { loadJanghoodConfig, validateDocumentConfig } from '../lib';
 
 describe('test load config', () => {
   test('load right config by config object', async () => {
