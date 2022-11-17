@@ -8,24 +8,20 @@
  */
 import { loadJanghoodConfig } from '../config';
 import { JanghoodConfig } from '../../types/config';
-import { jWarn, mergeBase } from './tools';
+import { initApiExtractor } from './options/initApiExtractor';
 
 
 export const initConfig = async (jhConfig?: JanghoodConfig) => {
   const loadConfig = jhConfig ? jhConfig : (await loadJanghoodConfig())?.config;
   if (!loadConfig) {return;}
 
-  const config: JanghoodConfig = {};
+  let config: JanghoodConfig = {};
 
   config.base = loadConfig.base;
 
-  const apiExtractor = mergeBase(config.base, loadConfig.apiExtractor);
-  if (apiExtractor) {
-    config.apiExtractor = apiExtractor;
-  } else if (loadConfig.apiExtractor) {
-    // todo add default value
-    jWarn('apiExtractor should have config');
-  }
+  // api extractor
+  config = await initApiExtractor(config, loadConfig);
+
 
   return config;
 };
