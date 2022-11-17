@@ -8,11 +8,11 @@
  */
 import { test, expect, describe } from 'vitest';
 import defineJhConfig from '../lib/defineJhConfig';
-import { loadConfigFromFile, validateDocumentConfig } from '../lib/config';
+import { loadJanghoodConfig, validateDocumentConfig } from '../lib/config';
 
 describe('test load config', () => {
   test('load right config by config object', async () => {
-    const info = await loadConfigFromFile();
+    const info = await loadJanghoodConfig();
     expect(info?.config).toMatchInlineSnapshot(`
       {
         "apiExtractor": {

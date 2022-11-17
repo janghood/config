@@ -19,7 +19,7 @@ export type JanghoodConfigExport = JanghoodConfig | Promise<JanghoodConfig> | Ja
 
 export declare function defineJhConfig(config?: JanghoodConfig): JanghoodConfigExport;
 
-export declare function loadConfigFromFile(configFile?: string, configRoot?: string): Promise<{ path: string, config: JanghoodConfig, dependencies: string[] } | null>;
+export declare function loadJanghoodConfig(configFile?: string, configRoot?: string): Promise<{ path: string, config: JanghoodConfig, dependencies: string[] } | null>;
 
 export declare function validateDocumentConfig(config: JanghoodConfig, documentName: string): boolean | undefined;
 

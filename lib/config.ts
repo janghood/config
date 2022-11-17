@@ -69,7 +69,7 @@ export const DEFAULT_CONFIG_FILES = [
   'janghood.config.cts'
 ]
 
-export async function loadConfigFromFile(
+export async function loadJanghoodConfig(
   configFile?: string,
   configRoot: string = process.cwd(),
 ): Promise<{

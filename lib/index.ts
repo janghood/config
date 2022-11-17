@@ -7,6 +7,6 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
-export { loadConfigFromFile, validateDocumentConfig } from './config';
+export { loadJanghoodConfig, validateDocumentConfig } from './config';
 
 export * from './defineJhConfig';
