@@ -7,7 +7,7 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { test, expect, describe } from 'vitest';
-import defineJhConfig from '../lib/defineJhConfig';
+import { defineJhConfig } from '../lib/defineJhConfig';
 import { loadJanghoodConfig, validateDocumentConfig } from '../lib';
 
 describe('test load config', () => {

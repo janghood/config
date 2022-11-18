@@ -11,4 +11,4 @@ import { JanghoodDefineConfig, JanghoodConfigExport } from '../types/config';
 
 export const defineJhConfig = (option: JanghoodDefineConfig): JanghoodConfigExport => {
   return option;
-}
+};

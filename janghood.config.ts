@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import defineJhConfig from './lib/defineJhConfig';
+import { defineJhConfig } from './lib';
 
 const firstUpperCase = (str: string) => `${str[0].toUpperCase()}${str.slice(1, str.length)}`;
 
