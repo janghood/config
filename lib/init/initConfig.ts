@@ -7,8 +7,9 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import { loadJanghoodConfig } from '../config';
-import { JanghoodConfig } from '../../types/config';
+import { JanghoodDefineConfig, JanghoodConfig } from '../../types/config';
 import { initApiExtractor } from './options/initApiExtractor';
+import { initLint } from './options/initLint';
 
 
 export const initConfig = async (jhConfig?: JanghoodDefineConfig) => {
@@ -22,6 +23,7 @@ export const initConfig = async (jhConfig?: JanghoodDefineConfig) => {
   // api extractor
   config = await initApiExtractor(config, loadConfig);
 
+  config = await initLint(config, loadConfig);
 
   return config;
 };

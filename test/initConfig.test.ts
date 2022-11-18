@@ -37,29 +37,69 @@ describe('test init config', () => {
         const config = await initConfig(apiExtractor);
         expect(config).toMatchObject(apiExtractor);
       });
+
+      test('only lint', async () => {
+        // ...
+      });
     });
 
     describe('merge', () => {
 
-      test('base merge to open apiExtractor', async () => {
-        const base = { base: { include: ['example'] } };
-        const apiExtractor = { apiExtractor: true };
-        const config = await initConfig({ ...base, ...apiExtractor });
-        expect(config).toMatchObject({ base: { include: ['example'] }, apiExtractor: { include: ['example'] } });
+      describe('apiExtractor', () => {
+        test('base merge to open apiExtractor', async () => {
+          const base = { base: { include: ['example'] } };
+          const apiExtractor = { apiExtractor: true };
+          const config = await initConfig({ ...base, ...apiExtractor });
+          expect(config).toMatchObject({ base: { include: ['example'] }, apiExtractor: { include: ['example'] } });
+        });
+
+        test('base is empty and merge to open apiExtractor', async () => {
+          const infoSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+          const apiExtractor = { apiExtractor: true };
+          await initConfig(apiExtractor);
+          expect(infoSpy).toHaveBeenCalled();
+        });
+
+        test('base merge to close apiExtractor', async () => {
+          const base = { base: { include: ['example'] } };
+          const apiExtractor = { apiExtractor: false };
+          const config = await initConfig({ ...base, ...apiExtractor });
+          expect(config).toMatchObject({ base: { include: ['example'] } });
+        });
       });
 
-      test('base is empty and merge to open apiExtractor', async () => {
-        const infoSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
-        const apiExtractor = { apiExtractor: true };
-        await initConfig(apiExtractor);
-        expect(infoSpy).toHaveBeenCalled();
-      });
+      describe('lint', () => {
 
-      test('base merge to close apiExtractor', async () => {
-        const base = { base: { include: ['example'] } };
-        const apiExtractor = { apiExtractor: false };
-        const config = await initConfig({ ...base, ...apiExtractor });
-        expect(config).toMatchObject({ base: { include: ['example'] } });
+        test('base merge to open lint option', async () => {
+          const config = await initConfig({
+            base: { include: ['example'] },
+            lint: { eslint: true, prettier: true }
+          });
+          expect(config).toMatchObject({
+            base: { include: ['example'] },
+            lint: {
+              eslint: { include: ['example'] },
+              prettier: { include: ['example'] }
+            }
+          });
+        });
+
+        test('base is empty and merge to open lint option', async () => {
+          const infoSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+          await initConfig({
+            lint: { eslint: true, prettier: true, commitlint: true }
+          });
+          expect(infoSpy).toHaveBeenCalled();
+        });
+
+        test('base merge to close lint option', async () => {
+          const config = await initConfig({
+            base: { include: ['example'] },
+            lint: { eslint: false, prettier: false, commitlint: false }
+          });
+          expect(config).toMatchObject({ base: { include: ['example'] } });
+        });
+
       });
 
     });
