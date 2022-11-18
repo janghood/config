@@ -2,9 +2,7 @@
 
 > Janghood config loader
 
-
 ## Document
-
 
 ### Usage
 
@@ -24,7 +22,8 @@ config name maybe :
 ```
 
 In this version, you can add config file in your package.json root path.
-Load logic base on `vite config`, but without exhaustive testing, you can also explore the location of the config by yourself.
+Load logic base on `vite config`, but without exhaustive testing, you can also explore the location of the config by
+yourself.
 
 ##### Typescript
 
@@ -40,4 +39,10 @@ export default defineJhConfig({
 
 #### API
 
-
+> haven't written yet.
+> 
+> you can see the type `JanghoodConfig` definition in `types/config.d.ts`.
+> 
+> `base` option will merge to `apiExtractor`,`lint.eslint`,`lint.prettier`.
+> 
+> `prettier` not support right now.
