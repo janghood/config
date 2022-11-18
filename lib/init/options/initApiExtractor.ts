@@ -6,10 +6,10 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { JanghoodConfig } from '../../../types/config';
+import { JanghoodDefineConfig, JanghoodConfig } from '../../../types/config';
 import { jWarn, mergeBase } from '../tools';
 
-export const initApiExtractor = async (config: JanghoodConfig, loadConfig: JanghoodConfig) => {
+export const initApiExtractor = async (config: JanghoodConfig, loadConfig: JanghoodDefineConfig) => {
   const apiExtractor = mergeBase(config.base, loadConfig.apiExtractor);
   if (apiExtractor) {
     config.apiExtractor = apiExtractor;

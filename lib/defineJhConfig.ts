@@ -6,9 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { JanghoodConfig, JanghoodConfigExport } from '../types/config';
+import { JanghoodDefineConfig, JanghoodConfigExport } from '../types/config';
 
 
-export default function (option: JanghoodConfig): JanghoodConfigExport {
+export const defineJhConfig = (option: JanghoodDefineConfig): JanghoodConfigExport => {
   return option;
 }

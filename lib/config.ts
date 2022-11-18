@@ -15,7 +15,7 @@ import os from 'os';
 import { build } from 'esbuild';
 import { pathToFileURL } from 'node:url';
 import { createRequire } from 'node:module';
-import { ApiExtractorType, Documents, JanghoodConfig } from '../types/config';
+import { ApiExtractorType, Documents, JanghoodDefineConfig } from '../types/config';
 
 
 export function lookupFile(
@@ -49,7 +49,7 @@ export function isObject(value: unknown): value is Record<string, any> {
   return Object.prototype.toString.call(value) === '[object Object]';
 }
 
-export const validateDocumentConfig = (config: JanghoodConfig & { apiExtractor?: ApiExtractorType }, documentName: string) => {
+export const validateDocumentConfig = (config: JanghoodDefineConfig & { apiExtractor?: ApiExtractorType }, documentName: string) => {
   if (!config.apiExtractor?.document ||
     !documentName ||
     !config.apiExtractor.document[documentName as keyof Documents]
@@ -74,7 +74,7 @@ export async function loadJanghoodConfig(
   configRoot: string = process.cwd()
 ): Promise<{
   path: string
-  config: JanghoodConfig
+  config: JanghoodDefineConfig
   dependencies: string[]
 } | null> {
   const start = performance.now();
@@ -207,7 +207,7 @@ async function loadConfigFromBundledFile(
   fileName: string,
   bundledCode: string,
   isESM: boolean
-): Promise<JanghoodConfig> {
+): Promise<JanghoodDefineConfig> {
   // for esm, before we can register loaders without requiring users to run node
   // with --experimental-loader themselves, we have to do a hack here:
   // write it to disk, load it with native Node ESM, then delete the file.

@@ -15,20 +15,20 @@ export * from './api-extractor';
 export type BaseConfig = InOrExclude;
 
 
-export interface JanghoodConfig {
+export interface JanghoodDefineConfig {
   base?: BaseConfig,
   apiExtractor?: WithEmptyBoolean<ApiExtractorType>;
 }
 
-export type JanghoodConfigFn = (config?: JanghoodConfig) => JanghoodConfig | Promise<JanghoodConfig>;
-export type JanghoodConfigExport = JanghoodConfig | Promise<JanghoodConfig> | JanghoodConfigFn;
+export type JanghoodConfigFn = (config?: JanghoodDefineConfig) => JanghoodDefineConfig | Promise<JanghoodDefineConfig>;
+export type JanghoodConfigExport = JanghoodDefineConfig | Promise<JanghoodDefineConfig> | JanghoodConfigFn;
 
 export declare function defineJhConfig(config?: JanghoodConfig): JanghoodConfigExport;
 export declare function initConfig(config?: JanghoodConfig): JanghoodConfig;
 
-export declare function loadJanghoodConfig(configFile?: string, configRoot?: string): Promise<{ path: string, config: JanghoodConfig, dependencies: string[] } | null>;
+export declare function loadJanghoodConfig(configFile?: string, configRoot?: string): Promise<{ path: string, config: JanghoodDefineConfig, dependencies: string[] } | null>;
 
-export declare function validateDocumentConfig(config: JanghoodConfig, documentName: string): boolean | undefined;
+export declare function validateDocumentConfig(config: JanghoodDefineConfig, documentName: string): boolean | undefined;
 
 
 

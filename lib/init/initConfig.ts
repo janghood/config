@@ -11,7 +11,7 @@ import { JanghoodConfig } from '../../types/config';
 import { initApiExtractor } from './options/initApiExtractor';
 
 
-export const initConfig = async (jhConfig?: JanghoodConfig) => {
+export const initConfig = async (jhConfig?: JanghoodDefineConfig) => {
   const loadConfig = jhConfig ? jhConfig : (await loadJanghoodConfig())?.config;
   if (!loadConfig) {return;}
 
