@@ -1,6 +1,6 @@
 {
   "name": "@janghood/config",
-  "version": "0.0.1-0",
+  "version": "0.0.1-1",
   "description": "Janghood config interpreter.",
   "main": "dist/index.js",
   "author": "阿怪 <higuaifan@higuaifan.com>",
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@rollup/plugin-json": "^5.0.1",
     "@rollup/plugin-typescript": "^9.0.2",
+    "@types/eslint": "^8.4.10",
     "@types/node": "^18.11.9",
     "@vitest/coverage-c8": "^0.25.2",
     "esbuild": "^0.15.14",

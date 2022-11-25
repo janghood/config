@@ -9,16 +9,26 @@
 
 import { WithEmptyBoolean } from '../common/tools';
 import { BaseConfig } from '../config';
+import { Linter } from 'eslint';
 
+
+export declare type EslintOverwriteParams = Pick<Linter.Config, 'env' | 'extends' | 'ignorePatterns' | 'plugins' | 'rules' | 'parserOptions'>;
+
+export declare type JanghoodEslintOverwriteConfig = {
+  [P in keyof EslintOverwriteParams]: Linter.Config[P]
+}
 
 /**
  * @description lint option base
  */
-type LintBaseOptionConfig = BaseConfig & {};
+
+export declare type LintBaseOptionConfig = BaseConfig & {
+  nuxt?: boolean,
+  config?: Linter.Config,
+  overwrite?: JanghoodEslintOverwriteConfig
+}
 
 export type LintOption<T = unknown> = WithEmptyBoolean<LintBaseOptionConfig & T>;
-
-
 
 export declare type LintDefineType = {
   eslint?: LintOption<{}>,
