@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { BaseDocumentOption } from "./common";
+import { BaseDocumentOption } from './common';
 import { Doc } from './index';
 
 /**
@@ -51,6 +51,7 @@ export declare type WebTypeOption = {
 export type WebTypesAttributes = {
   name: string,
   description?: string,
+  type?: string[],
   'doc-url'?: string,
   value?: Doc
 }
@@ -63,7 +64,7 @@ export type WebTypesTag = {
   source?: { symbol: string } | { file: string, offset: number },
   description?: string,
   'doc-url'?: string,
-  attributes?: WebTypesAttributes[],
+  props?: WebTypesAttributes[],
   events?: [],
   slots?: []
 }
