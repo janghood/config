@@ -22,5 +22,9 @@ export declare type ApiExtractorType = APIOptionType & {
   /**
    * @description document creator option
    */
-  document?: Documents
+  document?: Documents,
+  /**
+   * @description customer annotation
+   */
+  annotate?: Record<string, any>
 }
