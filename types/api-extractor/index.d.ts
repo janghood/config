@@ -8,12 +8,15 @@
  */
 import { WebTypeOption } from './web-type';
 import { MarkdownOption } from './markdown';
+import { VscodeOption } from './vscode';
 
 export declare type Doc = Record<string, string>;
 export type Documents = {
   webTypes?: WebTypeOption,
   markdown?: MarkdownOption
+  vscode?: VscodeOption
 }
 export * from './web-type';
 export * from './markdown';
+export * from './vscode';
 export * from './apiExtractor';
