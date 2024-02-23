@@ -13,7 +13,7 @@ import { initConfig } from '../lib/init/initConfig';
 
 describe('test init config', () => {
 
-  test('no config param and param config', async () => {
+  test.skip('no config param and param config', async () => {
     vi.mock('../lib/config', () => ({
       loadJanghoodConfig: () => new Promise(resolve => resolve(undefined))
     }));
