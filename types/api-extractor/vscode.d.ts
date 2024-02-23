@@ -17,7 +17,7 @@ export declare type VscodeOption = {
   packageUrl?: string,
 } & BaseDocumentOption;
 
-export type AttributeType = {
+export type VeturAttribute = {
   default: string
   description: string
   type: string
@@ -25,7 +25,7 @@ export type AttributeType = {
 }
 
 export type VeturAttributes = {
-  [key: string]: AttributeType
+  [key: string]: VeturAttribute
 }
 
 export type VeturTag = {
