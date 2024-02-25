@@ -1,6 +1,6 @@
 {
   "name": "@janghood/config",
-  "version": "0.0.1-3",
+  "version": "0.0.1-4",
   "description": "Janghood config interpreter.",
   "main": "dist/index.js",
   "author": "阿怪 <higuaifan@higuaifan.com>",
