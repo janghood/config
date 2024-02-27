@@ -6,7 +6,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { Documents } from './index';
+import { Doc, Documents } from './index';
 import { BaseConfig } from '../config';
 
 /**
@@ -18,6 +18,19 @@ export declare type APIOptionType = BaseConfig & {
   }
 }
 
+export declare type  ApiExtractorAnnotateOnInitParamType = {
+  doc?: Doc,
+  name: string,
+  children?: any[],  //todo actually is JhAPI -> fix this
+  link?: any
+}
+
+export declare type ApiExtractorAnnotate = Record<string, { type: string } & ApiExtractorLifeCycles>
+
+export declare interface ApiExtractorLifeCycles {
+  onInit?: (paramJhApi: ApiExtractorAnnotateOnInitParamType) => ApiExtractorAnnotateOnInitParamType;
+}
+
 export declare type ApiExtractorType = APIOptionType & {
   /**
    * @description document creator option
@@ -26,5 +39,5 @@ export declare type ApiExtractorType = APIOptionType & {
   /**
    * @description customer annotation
    */
-  annotate?: Record<string, any>
+  annotate?: ApiExtractorAnnotate
 }
