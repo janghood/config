@@ -20,5 +20,5 @@ export declare type MarkdownOption = {
   /**
    * @description replace output file path to ''
    */
-  replace?: string
+  replace?: string | ((dict: string) => string),
 } & BaseDocumentOption;
